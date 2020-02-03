@@ -1,17 +1,14 @@
 const express = require('express');
 const server = express();
-
-server.use(express.json());
-
-server.use(logger);
-
 //for my routes
 const actionRouter = require('./data/routes/actionRouter');
 const projectRouter = require('./data/routes/projectRouter');
 
-server.use('/actions', actionRouter);
-server.use('/projects', projectRouter);
-
+server.use(express.json());
+server.use(logger);
+//for my routes 
+server.use('/actions', actionRouter); //for postman, it'll allow you to use as a shortcut
+server.use('/projects', projectRouter); //for postman, it'll allow you to use as a shortcut
 
 server.get('/', (req, res, next) => {
   res.send(`<h2>NODE API SPRINT CHALLENGE!</h2>`);

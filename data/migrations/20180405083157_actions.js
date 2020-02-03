@@ -11,7 +11,7 @@ exports.up = function(knex) {
             .onDelete("CASCADE")
             .onUpdate("CASCADE");
 
-        actions.string("description", 128).notNullable();
+        actions.string("description", 128).notNullable();//notNullable means it cant be empty
         actions.text("notes").notNullable();
         actions.boolean("completed").defaultTo(false);
     });
